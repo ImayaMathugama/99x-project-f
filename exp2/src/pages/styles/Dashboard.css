@@ -1,0 +1,29 @@
+/* dashboard.css */
+body {
+  background-color: #df4141 !important; /* Or any light color */
+  
+  margin: 0;
+  padding: 0;
+ 
+  height: 100%;
+  display: flex;
+}
+.dashboard-title {
+  background-color: #282323!important;
+  padding: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #268339;
+}
+
+.dashboard-area {
+  height: 250px;
+  width: 100%;
+  background-color: #912e2e !important;
+  color: rgb(9, 178, 51)!important;
+  
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
