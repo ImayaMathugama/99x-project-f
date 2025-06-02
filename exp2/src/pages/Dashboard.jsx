@@ -15,6 +15,7 @@ import {
   PieChart, Pie, Cell
 } from 'recharts';
 
+
 const revenueData = [
   { name: 'Jan', orders: 4000 },
   { name: 'Feb', orders: 3000 },
@@ -51,17 +52,27 @@ const StatCard = ({ title, value, change }) => (
 );
 
 export default function Dashboard() {
-  const { isAuthenticated } = useAuth(); // ✅ Use context
+  const { isAuthenticated } = useAuth(); //  Use context
+   const { role } = useAuth(); //  Access role
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />; // ✅ Protect
+    return <Navigate to="/login" replace />; //  Protect
   }
 
   return (
     <Box sx={{ padding: 4 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-        <Typography variant="h4">Dashboard</Typography>
+
+      {role === 'admin' && (
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+           <Typography variant="h4">Dashboard for Admin</Typography>
+          </Box>
+      )}
+
+     {role === 'user' && (
+         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+        <Typography variant="h4">Dashboard for User</Typography>
       </Box>
+      )}
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={3}>

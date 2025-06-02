@@ -11,9 +11,9 @@ import RegistrationForm from './pages/RegistrationForm';
 import Dashboard from './pages/Dashboard';
 import ProfilePage from './components/ProfilePage';
 import Home from './components/Home';
-import Contact from './components/Contact';
+import Calendar from './components/Calendar';
 import AboutUs from './components/AboutUs';
-import Overview from './components/Overview';
+import Settings from './components/Settings';
 import Sidebar from './components/Sidebar';
 
 function App() {
@@ -55,10 +55,10 @@ function App() {
           />
 
           <Route
-            path="/contact"
+            path="/calendar"
             element={
               <ProtectedRoute>
-                <Sidebar><Contact /></Sidebar>
+                <Sidebar><Calendar /></Sidebar>
               </ProtectedRoute>
             }
           />
@@ -73,10 +73,10 @@ function App() {
           />
 
           <Route
-            path="/overview"
+            path="/settings"
             element={
               <ProtectedRoute>
-                <Sidebar><Overview /></Sidebar>
+                <Sidebar><Settings /></Sidebar>
               </ProtectedRoute>
             }
           />

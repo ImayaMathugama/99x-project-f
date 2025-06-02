@@ -1,9 +1,9 @@
-const Overview = () => 
+const Settings = () => 
     <h2 
         style={{ 
             color: 'white' 
              }}>
-        Welcome to the Overview
+        Settings
     </h2>;
 
-export default Overview;
+export default Settings;

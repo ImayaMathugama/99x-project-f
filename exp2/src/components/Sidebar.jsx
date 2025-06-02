@@ -27,12 +27,12 @@ import {
   StarBorder,
 } from '@mui/icons-material';
 import './styles/Sidebar.css';
-import { useAuth } from '../context/AuthContext'; // ✅ Import useAuth
+import { useAuth } from '../context/AuthContext'; //  Import useAuth
 
 export default function Sidebar({ children }) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
-  const { role, logout } = useAuth(); // ✅ Access role
+  const { role, logout } = useAuth(); //  Access role
 
   const handleClick = () => {
     setOpen(!open);
@@ -55,18 +55,20 @@ export default function Sidebar({ children }) {
           <ListItemText primary="Dashboard" />
         </ListItemButton>
 
-        {role === 'admin' && (
-          <ListItemButton className="sidebar-list-item" onClick={() => navigate('/home')}>
+        <ListItemButton className="sidebar-list-item" onClick={() => navigate('/home')}>
             <ListItemIcon><OtherHousesIcon /></ListItemIcon>
             <ListItemText primary="Home" />
-            </ListItemButton>
-        )}
+        </ListItemButton>
 
-
-        <ListItemButton className="sidebar-list-item" onClick={() => navigate('/calender')}>
+        {role === 'admin' && (
+          <ListItemButton className="sidebar-list-item" onClick={() => navigate('/calendar')} >
           <ListItemIcon><CalendarMonthIcon /></ListItemIcon>
           <ListItemText primary="Calender" />
-        </ListItemButton>
+         </ListItemButton>
+        )}
+
+        
+
         <ListItemButton onClick={handleClick} className="sidebar-list-item">
           <ListItemIcon><InboxIcon /></ListItemIcon>
           <ListItemText primary="All inboxes" />
@@ -79,14 +81,17 @@ export default function Sidebar({ children }) {
               <ListItemIcon><InboxIcon /></ListItemIcon>
               <ListItemText primary="Inbox" />
             </ListItemButton>
+
             <ListItemButton className="sidebar-list-item sidebar-nested-item">
               <ListItemIcon><StarBorder /></ListItemIcon>
               <ListItemText primary="Starred" />
             </ListItemButton>
+
             <ListItemButton className="sidebar-list-item sidebar-nested-item">
               <ListItemIcon><SendIcon /></ListItemIcon>
               <ListItemText primary="Sent" />
             </ListItemButton>
+
             <ListItemButton className="sidebar-list-item sidebar-nested-item">
               <ListItemIcon><DraftsIcon /></ListItemIcon>
               <ListItemText primary="Draft" />
@@ -94,10 +99,11 @@ export default function Sidebar({ children }) {
           </List>
         </Collapse>
 
-        <ListItemButton className="sidebar-list-item">
+        <ListItemButton className="sidebar-list-item" onClick={() => navigate('/settings')}>
           <ListItemIcon><SettingsIcon /></ListItemIcon>
           <ListItemText primary="Settings" />
         </ListItemButton>
+
         <ListItemButton className="sidebar-list-item">
           <ListItemIcon><HelpIcon /></ListItemIcon>
           <ListItemText primary="Help and feedback" />
@@ -110,7 +116,7 @@ export default function Sidebar({ children }) {
         </Box>
       </List>
 
-      {/* ✅ HERE’S WHERE YOUR DASHBOARD WILL RENDER */}
+      {/*  HERE’S WHERE  DASHBOARD WILL RENDER */}
       <div className="content-area">
         {children}
       </div>
